@@ -1,0 +1,92 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'main_ui.ui'
+#
+# Created by: PyQt5 UI code generator 5.9.2
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(1086, 832)
+        MainWindow.setDockNestingEnabled(True)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.centralwidget)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.mdiArea = QtWidgets.QMdiArea(self.centralwidget)
+        self.mdiArea.setObjectName("mdiArea")
+        self.horizontalLayout_4.addWidget(self.mdiArea)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1086, 30))
+        self.menubar.setMinimumSize(QtCore.QSize(0, 30))
+        self.menubar.setObjectName("menubar")
+        self.menuFile = QtWidgets.QMenu(self.menubar)
+        self.menuFile.setObjectName("menuFile")
+        self.menuEdit = QtWidgets.QMenu(self.menubar)
+        self.menuEdit.setObjectName("menuEdit")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+        self.dockWidget_11 = QtWidgets.QDockWidget(MainWindow)
+        self.dockWidget_11.setObjectName("dockWidget_11")
+        self.dockWidgetContents_11 = QtWidgets.QWidget()
+        self.dockWidgetContents_11.setObjectName("dockWidgetContents_11")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.dockWidgetContents_11)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.listView_3 = QtWidgets.QListView(self.dockWidgetContents_11)
+        self.listView_3.setObjectName("listView_3")
+        self.verticalLayout_2.addWidget(self.listView_3)
+        self.dockWidget_11.setWidget(self.dockWidgetContents_11)
+        MainWindow.addDockWidget(QtCore.Qt.DockWidgetArea(1), self.dockWidget_11)
+        self.dockWidget_12 = QtWidgets.QDockWidget(MainWindow)
+        self.dockWidget_12.setObjectName("dockWidget_12")
+        self.dockWidgetContents_12 = QtWidgets.QWidget()
+        self.dockWidgetContents_12.setObjectName("dockWidgetContents_12")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.dockWidgetContents_12)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.listView_4 = QtWidgets.QListView(self.dockWidgetContents_12)
+        self.listView_4.setObjectName("listView_4")
+        self.verticalLayout.addWidget(self.listView_4)
+        self.dockWidget_12.setWidget(self.dockWidgetContents_12)
+        MainWindow.addDockWidget(QtCore.Qt.DockWidgetArea(2), self.dockWidget_12)
+        self.toolBar_2 = QtWidgets.QToolBar(MainWindow)
+        self.toolBar_2.setEnabled(True)
+        self.toolBar_2.setMinimumSize(QtCore.QSize(50, 50))
+        self.toolBar_2.setObjectName("toolBar_2")
+        MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar_2)
+        self.actionOpen = QtWidgets.QAction(MainWindow)
+        self.actionOpen.setObjectName("actionOpen")
+        self.actionSave = QtWidgets.QAction(MainWindow)
+        self.actionSave.setObjectName("actionSave")
+        self.actionClose = QtWidgets.QAction(MainWindow)
+        self.actionClose.setObjectName("actionClose")
+        self.actionImport = QtWidgets.QAction(MainWindow)
+        self.actionImport.setObjectName("actionImport")
+        self.menuFile.addAction(self.actionOpen)
+        self.menuFile.addAction(self.actionSave)
+        self.menuFile.addAction(self.actionClose)
+        self.menuFile.addAction(self.actionImport)
+        self.menubar.addAction(self.menuFile.menuAction())
+        self.menubar.addAction(self.menuEdit.menuAction())
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.menuFile.setTitle(_translate("MainWindow", "File"))
+        self.menuEdit.setTitle(_translate("MainWindow", "Edit"))
+        self.toolBar_2.setWindowTitle(_translate("MainWindow", "toolBar_2"))
+        self.actionOpen.setText(_translate("MainWindow", "Open"))
+        self.actionSave.setText(_translate("MainWindow", "Save"))
+        self.actionClose.setText(_translate("MainWindow", "Close"))
+        self.actionImport.setText(_translate("MainWindow", "Import"))
+
+import ui.images

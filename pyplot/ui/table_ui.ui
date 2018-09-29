@@ -20,22 +20,32 @@
       <widget class="QTableWidget" name="tableWidget">
        <row>
         <property name="text">
-         <string>r1</string>
+         <string>新建行</string>
         </property>
        </row>
        <row>
         <property name="text">
-         <string>r2</string>
+         <string>新建行</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>新建行</string>
         </property>
        </row>
        <column>
         <property name="text">
-         <string>x</string>
+         <string>新建列</string>
         </property>
        </column>
        <column>
         <property name="text">
-         <string>y</string>
+         <string>新建列</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>新建列</string>
         </property>
        </column>
       </widget>

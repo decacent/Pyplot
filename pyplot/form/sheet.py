@@ -20,15 +20,27 @@
 
 '''
 
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow,QTableWidget
 from PyQt5 import QtCore, QtGui, QtWidgets
-from ui.table_ui import Ui_sheet
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Sheet(QtWidgets.QWidget, Ui_sheet):
-    def __init__(self, row, column):
-        super(Sheet, self).__init__()
-        self.row = row
-        self.column = column
-        # self.tableWidget.setColumnCount(2)
-        # self.tableWidget.setRowCount(2)
+
+
+class MyTable(QTableWidget):
+    def __init__(self, parent=None):
+        super(MyTable, self).__init__(parent)
+        self.setWindowTitle("我是一个表格")
+        #self.setWindowIcon(QIcon("male.png"))
+        #self.resize(920, 240)
+        self.setColumnCount(5)
+        self.setRowCount(2)
+        self.setSelectionBehavior(QTableWidget.SelectColumns)
+        self.setSelectionMode(QTableWidget.MultiSelection)
+        # 设置表格有两行五列。
+        #self.setColumnWidth(0, 200)
+        #self.setColumnWidth(4, 200)
+        #self.setRowHeight(0, 100)
+        # 设置第一行高度为100px，第一列宽度为200px。
+
+

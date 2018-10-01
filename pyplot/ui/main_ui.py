@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main_ui.ui'
 #
-# Created by: PyQt5 UI code generator 5.9.2
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -15,11 +15,16 @@ class Ui_MainWindow(object):
         MainWindow.setDockNestingEnabled(True)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.centralwidget)
-        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.mdiArea = QtWidgets.QMdiArea(self.centralwidget)
+        self.mdiArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.mdiArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.mdiArea.setViewMode(QtWidgets.QMdiArea.SubWindowView)
+        self.mdiArea.setDocumentMode(False)
+        self.mdiArea.setTabsClosable(False)
         self.mdiArea.setObjectName("mdiArea")
-        self.horizontalLayout_4.addWidget(self.mdiArea)
+        self.verticalLayout_3.addWidget(self.mdiArea)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1086, 30))

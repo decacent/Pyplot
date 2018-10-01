@@ -6,27 +6,42 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+import  sys
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QTableWidget
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem,QHBoxLayout
 
-class Ui_sheet(object):
-    def setupUi(self, sheet):
-        sheet.setObjectName("sheet")
-        sheet.resize(633, 516)
-        self.horizontalLayout = QtWidgets.QHBoxLayout(sheet)
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.verticalLayout = QtWidgets.QVBoxLayout()
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.tableWidget = QtWidgets.QTableWidget(sheet)
-        self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(0)
-        self.tableWidget.setRowCount(0)
-        self.verticalLayout.addWidget(self.tableWidget)
-        self.horizontalLayout.addLayout(self.verticalLayout)
 
-        self.retranslateUi(sheet)
-        QtCore.QMetaObject.connectSlotsByName(sheet)
+class TableSheet(QtWidgets.QWidget):
+    def __init__(self,data,count):
+        super().__init__()
+        self.data = data
+        if self.data is None:
+            self.col = 5
+            self.row = 100
+        else:
+            self.col = self.data.shape[1]
+            self.row = self.data.shape[0]
 
-    def retranslateUi(self, sheet):
-        _translate = QtCore.QCoreApplication.translate
-        sheet.setWindowTitle(_translate("sheet", "Sheet"))
+        new_sheet = QTableWidget()
+        new_sheet.setWindowTitle('Sheet {}'.format(count))
+        new_sheet.setColumnCount(self.col)
+        new_sheet.setRowCount(self.row)
+        for i in range(self.row):
+            for j in range(self.col):
+                try:
+                    new_sheet.setItem(i, j, QTableWidgetItem(str(float((self.data[i, j])))))
+                except:
+                    pass
+        header = ['x']
+        header.extend(['y' + str(x + 1) for x in range(self.col)])
+        new_sheet.setWindowTitle('Sheet 1')
+        new_sheet.setHorizontalHeaderLabels(header)
+        # new_sheet.show()
+
+        mainLayout = QHBoxLayout()
+        mainLayout.addWidget(new_sheet)
+        self.setLayout(mainLayout)
+
 

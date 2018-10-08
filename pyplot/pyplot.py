@@ -37,7 +37,8 @@ from ui.table_ui import TableSheet
 from pandas import read_csv
 from spyder.widgets.variableexplorer.dataframeeditor import DataFrameEditor, DataFrameView
 from spyder.widgets.variableexplorer.arrayeditor import ArrayView, ArrayModel, ArrayEditorWidget
-from spyder.widgets.variableexplorer.importwizard import ContentsWidget,PreviewTableModel,PreviewTable, PreviewWidget, ImportWizard
+from spyder.widgets.variableexplorer.importwizard import ContentsWidget, PreviewTableModel, PreviewTable, PreviewWidget, \
+    ImportWizard
 from PyQt5.QtWidgets import QTableWidget
 
 
@@ -60,7 +61,7 @@ class Mywin(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.actionOpen.triggered.connect(self.openFile)
         self.actionClose.triggered.connect(self.test)
-        self.actionSave.triggered.connect(self.creat_table)
+        self.actionSave.triggered.connect(self.creat_none_table)
         self.actionImport.triggered.connect(self.importdata)
         self.figurepool = []
         self.sheetpool = []
@@ -72,7 +73,7 @@ class Mywin(QMainWindow, Ui_MainWindow):
         self.sheet_pool = {}
         self.figure_pool = {}
 
-        self.creat_table(data=None)
+        self.creat_none_table()
 
         self.mdiArea.subWindowActivated.connect(self.get_mdiWindow)
 
@@ -80,6 +81,8 @@ class Mywin(QMainWindow, Ui_MainWindow):
         print(self.mdiArea.currentSubWindow().windowTitle())
 
     # self.mdiArea.
+    def creat_none_table(self):
+        self.creat_table(data=None)
 
     def creat_table(self, data):
         new_sheet = TableSheet(data=data, count=self.sheet_count)
@@ -114,7 +117,6 @@ class Mywin(QMainWindow, Ui_MainWindow):
     #  self.mdiArea.addSubWindow(new_sheet)
     #  new_sheet.show()
 
-
     def test(self):
         print(self.s.model.xlabels)
         self.new_sheet.setHorizontalHeaderLabels(['x', 'y1', 'y2'])
@@ -132,21 +134,21 @@ class Mywin(QMainWindow, Ui_MainWindow):
         # print(a[0])
         # print(a[0].data(),a[0].row(),a[0].column())
 
-
         print('gg')
 
     def importdata(self):
         fn, ok = QtWidgets.QFileDialog.getOpenFileName(self, "打开", "C:/", "All Files (*);;Text Files (*.csv)")
-        #file_object = open('test.txt', 'rU')
+        # file_object = open('test.txt', 'rU')
         with open(fn, "r") as f:  # 设置文件对象
             str = f.read()
-        importdata=ImportWizard(None,str)
+        importdata = ImportWizard(None, str)
         if importdata.exec_():
             var_name, clip_data = importdata.get_data()
         type(clip_data)
 
-        #a=self.importdata.get_data()
+        # a=self.importdata.get_data()
         self.creat_table(np.array(clip_data))
+
 
 app = QApplication(sys.argv)
 main = Mywin()
